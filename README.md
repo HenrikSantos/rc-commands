@@ -130,4 +130,4 @@ This project is under the MIT license. See the [LICENSE](LICENSE) file for more 
 
 ---
 
-We hope `rc-commands` proves to be useful for you! If you have any suggestions or encounter any issues, feel free to [report an issue](https://github.com/your-username/rc-commands/issues).
+We hope `rc-commands` proves to be useful for you!
