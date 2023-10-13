@@ -1,0 +1,23 @@
+{
+  "name": "rc-commands",
+  "version": "1.0.0",
+  "description": "CLI like angular ng for react",
+  "main": "cli.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "rc": "./cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HenrikSantos/rc-commands"
+  },  
+  "keywords": ["CLI", "react", "commander", "fs"],
+  "author": "HenrikSantos",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.1.0",
+    "fs": "^0.0.1-security"
+  }
+}
