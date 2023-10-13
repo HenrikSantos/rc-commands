@@ -4,7 +4,7 @@
 
 ## Installation
 
-### Global Installation
+### Global Installation (preferred)
 
 To use `rc-commands` globally, you need to install it globally. You can do this via npm:
 
@@ -17,10 +17,20 @@ npm install -g rc-commands
 If you prefer to install `rc-commands` locally in your project, you can do so by running the following command in your project's root directory:
 
 ```bash
-npm install rc-commands
+npm install rc-commands -D
 ```
 
-This will add `rc-commands` as a dependency in your project's `package.json` file.
+This will add `rc-commands` as a dev dependency in your project's `package.json` file.
+
+Next, you will need to add the following command in your `package.json`:
+
+```json
+"scripts": {
+  "rc": "rc"
+}
+```
+
+To use `rc-commands` in this way, you will need to prefix all the commands with `npm run`.
 
 ### Generate a Component
 
@@ -39,12 +49,12 @@ This command will create a directory with the component name inside your React p
 ```bash
 rc c header
 ```
+
 This will create the following files:
   - Header
     - Header.css
     - Header.tsx
     - Header.spec.tsx
-
 
 ### Help
 
@@ -60,27 +70,59 @@ or
 rc c --help
 ```
 
-## Example
+### Update
 
-Let's create a new component called `MyComponent`:
+To update `rc-commands` just open an terminal and enter the following command `npm update -g rc-commands`.
 
-```bash
-rc component MyComponent
-# or
-rc c MyComponent
-```
+### Uninstall
 
-This will create the basic structure of the component in your React project's components directory.
+To Unistall `rc-commands` just open an terminal and enter the following command `npm uninstall -g rc-commands`.
 
 ## Contribution
 
 Feel free to contribute with improvements or bug fixes. Just follow the steps below:
 
-1. Fork the project
-2. Create a branch for your contribution (`git checkout -b feature/your-feature`)
-3. Commit your changes (`git commit -m '✨ Adding new feature'`) I like to use [gitmoji](https://gitmoji.dev/) 
-4. Push to the branch (`git push origin feature/your-feature`)
-5. Open a Pull Request
+## How to Contribute
+
+1. Find or Create an Issue
+   - **Find Existing Issue:**
+     - Navigate to the [Issues](https://github.com/HenrikSantos/rc-commands/issues) section to see open tasks.
+     - Choose one that aligns with your interests and skills.
+     - Leave a comment on the issue indicating that you'd like to work on it. This helps to avoid duplications of effort.
+   
+   - **Create a New Issue:**
+     - If you have a new idea or find a bug that hasn't been reported yet, create a new issue.
+     - Click on the "Issues" tab, and then on the "New issue" button. Fill in the new issue template with as much detail as possible.
+
+2. Fork the Repository or Create a Direct PR
+   - Choose one of the options below:
+     - **Forking:**
+       - Click on the "Fork" button in the top right corner of the page to create a copy of the repository in your account.
+       - Clone the forked repository to your local environment using the `git clone` command.
+     - **Creating a Direct PR:**
+       - If you're making a quick fix or small enhancement, you can create a PR directly.
+
+3. Create a Branch
+   - Create a new branch in the format `feature/your-feature` or `bugfix/your-fix`.
+
+4. Work on the Issue
+   - Develop the solution for the issue in your branch.
+
+5. Commit and Push
+   - Make frequent commits with descriptive messages, (i like to use [gitmoji](https://gitmoji.dev/)), and then push to your fork on GitHub.
+
+6. Create a Pull Request
+   - If you forked, click on "New Pull Request" in your fork to submit your changes. Remember to reference the issue.
+   - If you chose to create a direct PR, follow the instructions in the main repository.
+
+7. Review
+   - The changes will be reviewed by a maintainer. If there is feedback, make the necessary changes and update the PR.
+
+8. Merge Contributions
+    - Once the review is approved, your Pull Request will be merged into the main repository.
+
+Thank you for contributing to the project! Together, we're making this project even better.
+
 
 ## License
 

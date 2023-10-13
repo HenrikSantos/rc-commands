@@ -32,7 +32,7 @@ export default function ${componentName}() {
 import { render } from "@testing-library/react";
 import ${componentName} from "./${componentName}";
 
-test("verifica se a div com texto "name" está presente", () => {
+test("checks if the div with text "name" is present", () => {
   const { getByText } = render(<${componentName} />);
   const divElement = getByText(/${componentName}/i);
   expect(divElement).toBeInTheDocument();
