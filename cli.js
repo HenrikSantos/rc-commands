@@ -24,9 +24,9 @@ function createComponentCommand(commandName, description, aliases, fileType) {
 
   command
     .description(description)
-    .option('--no-styles', 'Skip creation of style file (css)', false)
+    .option('--no-styles', 'Skip creation of style file (css)')
     .action((paramComponentName, options) => {
-      const createStyles = options['no-styles'] ? false : true;
+      const createStyles = options.styles;
       const componentName = paramComponentName.charAt(0).toUpperCase() + paramComponentName.slice(1);
       createComponent(componentName, fileType, createStyles);
     });
