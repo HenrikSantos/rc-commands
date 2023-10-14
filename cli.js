@@ -27,12 +27,12 @@ function createComponentCommand(commandName, description, aliases, fileType) {
     .option('--no-styles', 'Skip creation of style file (css)')
     .action((paramComponentName, options) => {
       const createStyles = options.styles;
-      const componentName = paramComponentName.charAt(0).toUpperCase() + paramComponentName.slice(1);
-      createComponent(componentName, fileType, createStyles);
+      const componentPath = paramComponentName.charAt(0).toUpperCase() + paramComponentName.slice(1);
+      createComponent(componentPath, fileType, createStyles);
     });
 }
 
-createComponentCommand("component <paramComponentName>", "Create a component", ["c", "tsc"], "ts");
-createComponentCommand("js-component <paramComponentName>", "Create a js component", ["jsc"], "js");
+createComponentCommand("component <[path/to/new/]ComponentName>", "create a component", ["c", "tsc"], "ts");
+createComponentCommand("js-component <[path/to/new/]ComponentName>", "create a js component", ["jsc"], "js");
 
 program.parse(process.argv);

@@ -8,14 +8,15 @@ const { jsTemplate, tsTemplate } = require("./templates");
  * Creates a test for the created component
  * Creates a style file if `createStyles` is true
  *
- * @param {string} componentName
+ * @param {string} componentPath
  * @param {"js" | "ts"} type
  * @param {boolean} createStyles
  * @returns void
  */
-function createComponent(componentName, type, createStyles) {
+function createComponent(componentPath, type, createStyles) {
   try {
-    const folder = componentName;
+    const folder = componentPath;
+    const componentName = path.basename(componentPath);
     const templates = {
       ts: tsTemplate(componentName),
       js: jsTemplate(componentName),
@@ -30,7 +31,7 @@ function createComponent(componentName, type, createStyles) {
       files.push({ name: `${componentName}.css`, content: templates[type].css })
     }
 
-    fs.mkdirSync(folder);
+    fs.mkdirSync(folder, { recursive: true });
     files.forEach((file) => {
       const filePath = path.join(folder, file.name);
       fs.writeFileSync(filePath, file.content);
