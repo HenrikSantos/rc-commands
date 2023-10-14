@@ -22,10 +22,13 @@ function createComponentCommand(commandName, description, aliases, fileType) {
     aliases.forEach((alias) => command.alias(alias));
   }
 
-  command.action((paramComponentName) => {
-    const componentName = paramComponentName.charAt(0).toUpperCase() + paramComponentName.slice(1);
-    createComponent(componentName, fileType);
-  });
+  command
+    .option('--no-styles')
+    .action((paramComponentName, options) => {
+      const createStyles = options['no-styles'] ? false : true;
+      const componentName = paramComponentName.charAt(0).toUpperCase() + paramComponentName.slice(1);
+      createComponent(componentName, fileType, createStyles);
+    });
 }
 
 createComponentCommand("component <paramComponentName>", "Create a component", ["c", "tsc"], "ts");
