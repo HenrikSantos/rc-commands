@@ -1,7 +1,7 @@
 const { jsTemplate } = require("./js.template")
 const { tsTemplate } = require("./ts.template")
 
-export {
+module.exports = {
 	jsTemplate,
 	tsTemplate
 }

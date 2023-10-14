@@ -11,7 +11,7 @@ const { jsTemplate, tsTemplate } = require("./templates");
  * @param {boolean} createStyles
  * @returns void
  */
-export function createComponent(componentName, type, createStyles) {
+function createComponent(componentName, type, createStyles) {
   try {
     const folder = componentName;
     const templates = {
@@ -40,3 +40,6 @@ export function createComponent(componentName, type, createStyles) {
   }
 }
 
+module.exports = {
+  createComponent
+}

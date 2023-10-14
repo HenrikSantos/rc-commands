@@ -3,7 +3,7 @@
 const fs = require("fs");
 const path = require("path");
 const program = require("commander");
-const { createComponent } = require("./createComponent")
+const { createComponent } = require("./createComponent");
 
 program.version("0.0.3");
 
