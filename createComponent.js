@@ -17,8 +17,8 @@ function createComponent(componentName, type, createStyles) {
   try {
     const folder = componentName;
     const templates = {
-      ts: tsTemplate,
-      js: jsTemplate,
+      ts: tsTemplate(componentName),
+      js: jsTemplate(componentName),
     };
 
     const files = [
