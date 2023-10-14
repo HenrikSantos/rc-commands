@@ -32,19 +32,30 @@ Next, you will need to add the following command in your `package.json`:
 
 To use `rc-commands` in this way, you will need to prefix all the commands with `npm run`.
 
-### Generate a Component
+# How to use
 
-To generate a new component, use the following command:
+## Generate a TS Component
+
+To generate a new component, use one of the following commands:
 
 ```bash
-rc component componentName
-# or
 rc c componentName
+# or
+rc tsc componentName
+# or
+rc component componentName
 ```
 
-This command will create a directory with the component name inside your React project's components directory, containing the necessary files for the component.
+## Generate a JS Component
+For JavaScript components, you can use:
 
-### Example:
+```bash
+rc jsc componentName
+# or
+rc js-component componentName
+```
+
+## Example:
 
 ```bash
 rc c header
@@ -56,7 +67,7 @@ This will create the following files:
     - Header.tsx
     - Header.spec.tsx
 
-### Help
+# Help
 
 To get help on how to use `rc-commands`, you can execute:
 
@@ -70,19 +81,19 @@ or
 rc c --help
 ```
 
-### Update
+# Update
 
-To update `rc-commands` just open an terminal and enter the following command `npm update -g rc-commands`.
+To update `rc-commands` just open a terminal and enter the following command `npm update -g rc-commands`.
 
-### Uninstall
+# Uninstall
 
-To Unistall `rc-commands` just open an terminal and enter the following command `npm uninstall -g rc-commands`.
+To Uninstall `rc-commands` just open a terminal and enter the following command `npm uninstall -g rc-commands`.
 
-## Contribution
+# Contribution
 
 Feel free to contribute with improvements or bug fixes. Just follow the steps below:
 
-## How to Contribute
+# How to Contribute
 
 1. Find or Create an Issue
    - **Find Existing Issue:**
@@ -109,7 +120,7 @@ Feel free to contribute with improvements or bug fixes. Just follow the steps be
    - Develop the solution for the issue in your branch.
 
 5. Commit and Push
-   - Make frequent commits with descriptive messages, (i like to use [gitmoji](https://gitmoji.dev/)), and then push to your fork on GitHub.
+   - Make frequent commits with descriptive messages (I like to use [gitmoji](https://gitmoji.dev/)), and then push to your fork on GitHub.
 
 6. Create a Pull Request
    - If you forked, click on "New Pull Request" in your fork to submit your changes. Remember to reference the issue.
@@ -124,7 +135,7 @@ Feel free to contribute with improvements or bug fixes. Just follow the steps be
 Thank you for contributing to the project! Together, we're making this project even better.
 
 
-## License
+# License
 
 This project is under the MIT license. See the [LICENSE](LICENSE) file for more details.
 
