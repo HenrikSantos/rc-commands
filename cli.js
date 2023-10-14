@@ -3,6 +3,7 @@
 const fs = require("fs");
 const path = require("path");
 const program = require("commander");
+const { jsTemplate, tsTemplate } = require("./templates")
 
 program.version("0.0.2");
 
@@ -10,46 +11,8 @@ program.version("0.0.2");
 function createComponentFiles(componentName, type) {
   const folder = componentName;
   const templates = {
-    ts: {
-      component: `import React from "react";
-import "./${componentName}.css";
-
-export default function ${componentName}() {
-  return (
-    <div>${componentName}</div>
-  );
-}`,
-      spec: `import React from "react";
-import { render } from "@testing-library/react";
-import ${componentName} from "./${componentName}";
-
-test("checks if the div with text ${componentName} is present", () => {
-  const { getByText } = render(<${componentName} />);
-  const divElement = getByText(/${componentName}/i);
-  expect(divElement).toBeInTheDocument();
-});`,
-      css: "",
-    },
-    js: {
-      component: `import React from "react";
-import "./${componentName}.css";
-
-export default function ${componentName}() {
-  return (
-    <div>${componentName}</div>
-  );
-}`,
-      spec: `import React from "react";
-import { render } from "@testing-library/react";
-import ${componentName} from "./${componentName}";
-
-test("checks if the div with text ${componentName} is present", () => {
-  const { getByText } = render(<${componentName} />);
-  const divElement = getByText(/${componentName}/i);
-  expect(divElement).toBeInTheDocument();
-});`,
-      css: "",
-    },
+    ts: tsTemplate,
+    js: jsTemplate,
   };
 
   const files = [
