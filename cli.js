@@ -3,7 +3,7 @@
 const fs = require("fs");
 const path = require("path");
 const program = require("commander");
-const { jsTemplate, tsTemplate } = require("./templates")
+const { jsTemplate, tsTemplate } = require("./templates");
 
 program.version("0.0.2");
 
