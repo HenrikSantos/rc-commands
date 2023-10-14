@@ -7,7 +7,15 @@ const { jsTemplate, tsTemplate } = require("./templates");
 
 program.version("0.0.2");
 
-// Create a component
+/**
+ *
+ * Creates a component file as `componentName`.`type`
+ * Creates a test for the created component
+ *
+ * @param {string} componentName
+ * @param {"js" | "ts"} type
+ * @returns void
+ */
 function createComponentFiles(componentName, type) {
   const folder = componentName;
   const templates = {
@@ -30,6 +38,15 @@ function createComponentFiles(componentName, type) {
   console.log("Folder and files created successfully!");
 }
 
+/**
+ *
+ * Creates a component file as `componentName`.`type`
+ * Creates a test for the created component
+ *
+ * @param {string} componentName
+ * @param {"js" | "ts"} type
+ * @returns void
+ */
 function createComponent(componentName, type) {
   try {
     createComponentFiles(componentName, type);
@@ -38,7 +55,14 @@ function createComponent(componentName, type) {
   }
 }
 
-// Create component command
+/**
+ *
+ * @param {string} commandName
+ * @param {string} description
+ * @param {string[]} aliases
+ * @param {"js" | "ts"} fileType
+ * @returns void
+ */
 function createComponentCommand(commandName, description, aliases, fileType) {
   const command = program.command(commandName).description(description);
 
