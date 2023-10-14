@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
-const program = require("commander");
+const { Command } = require("commander");
 const { createComponent } = require("./createComponent");
+
+const program = new Command("rc-commands")
 
 program.version("0.0.3");
 
@@ -14,13 +16,14 @@ program.version("0.0.3");
  * @returns void
  */
 function createComponentCommand(commandName, description, aliases, fileType) {
-  const command = program.command(commandName).description(description);
+  const command = program.command(commandName);
 
   if (aliases && aliases.length > 0) {
     aliases.forEach((alias) => command.alias(alias));
   }
 
   command
+    .description(description)
     .option('--no-styles', 'Skip creation of style file (css)', false)
     .action((paramComponentName, options) => {
       const createStyles = options['no-styles'] ? false : true;
