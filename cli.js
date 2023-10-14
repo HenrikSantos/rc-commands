@@ -5,7 +5,7 @@ const path = require("path");
 const program = require("commander");
 const { createComponent } = require("./createComponent")
 
-program.version("0.0.2");
+program.version("0.0.3");
 
 /**
  *
