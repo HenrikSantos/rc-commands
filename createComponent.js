@@ -1,5 +1,7 @@
 const fs = require("fs");
 const path = require("path");
+const kleur = require("kleur");
+
 const { jsTemplate, tsTemplate } = require("./templates");
 
 /**
@@ -39,15 +41,16 @@ function createComponent(componentPath, type, createStyles) {
       const filePath = path.join(folder, file.name);
       if (!fs.existsSync(filePath)) {
         fs.writeFileSync(filePath, file.content);
-        console.log(`File ${file.name} created successfully!`);
+        console.log(kleur.blue().bold(`✅ File ${kleur.green().bold(file.name)} created successfully!`));
       } else {
-        console.log(`File ${file.name} already exists, skipping...`);
+        console.log(kleur.yellow().bold(`🚨 File ${kleur.blue().bold(file.name)} already exists, skipping...`));
       }
     });
 
-    console.log("\nFolder and files created successfully!\n");
+    console.log(kleur.bgBlue().white("\nFolder and files created successfully! 🚀🚀🚀"));
+    console.log("");
   } catch (error) {
-    console.error(`Something went wrong: ${error}`);
+    console.error(kleur.red().bold().underline(`Something went wrong: ${error}`));
   }
 }
 
