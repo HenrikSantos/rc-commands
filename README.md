@@ -72,9 +72,11 @@ You can pass an optional path before the componentName, ex:
 
 ```bash
 rc c ./src/components/header
+# or
+rc c src/components/header
 ```
 
-If you opened the terminal in the views header folder and want to create another component in the components folder, you can do the following:
+Supposing you have opened the terminal in the previous Header folder and want to create another component in the components folder, you can do the following:
 
 ```bash
 rc c ../footer
