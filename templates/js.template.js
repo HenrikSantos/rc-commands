@@ -1,26 +1,28 @@
-function jsTemplate(componentName) {
-	return {
-		component: `import React from "react";
-import "./${componentName}.css";
+"use strict";
 
-export default function ${componentName}() {
+function jsTemplate(componentName) {
+  return {
+    component: `import React from "react";
+import "./${ componentName }.css";
+
+export default function ${ componentName }() {
   return (
-    <div>${componentName}</div>
+    <div>${ componentName }</div>
   );
 }`,
-		spec: `import React from "react";
+    spec: `import React from "react";
 import { render } from "@testing-library/react";
-import ${componentName} from "./${componentName}";
+import ${ componentName } from "./${ componentName }";
 
-test("checks if the div with text ${componentName} is present", () => {
-  const { getByText } = render(<${componentName} />);
-  const divElement = getByText(/${componentName}/i);
+test("checks if the div with text ${ componentName } is present", () => {
+  const { getByText } = render(<${ componentName } />);
+  const divElement = getByText(/${ componentName }/i);
   expect(divElement).toBeInTheDocument();
 });`,
-		css: "",
-	}
+    css: "",
+  };
 }
 
 module.exports = {
-	jsTemplate
-}
+  jsTemplate
+};
