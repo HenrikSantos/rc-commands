@@ -1,7 +1,10 @@
-const { jsTemplate } = require("./js.template")
-const { tsTemplate } = require("./ts.template")
+"use strict";
+
+const { jsTemplate } = require("./js.template");
+
+const { tsTemplate } = require("./ts.template");
 
 module.exports = {
-	jsTemplate,
-	tsTemplate
-}
+  jsTemplate,
+  tsTemplate
+};
