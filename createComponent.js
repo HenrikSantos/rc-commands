@@ -16,7 +16,9 @@ const { jsTemplate, tsTemplate } = require("./templates");
 function createComponent(componentPath, type, createStyles) {
   try {
     const folder = componentPath;
-    const componentName = path.basename(componentPath);
+
+    const componentName = path.basename(componentPath).charAt(0).toUpperCase() + path.basename(componentPath).slice(1);
+
     const templates = {
       ts: tsTemplate(componentName),
       js: jsTemplate(componentName),
@@ -32,12 +34,18 @@ function createComponent(componentPath, type, createStyles) {
     }
 
     fs.mkdirSync(folder, { recursive: true });
+
     files.forEach((file) => {
       const filePath = path.join(folder, file.name);
-      fs.writeFileSync(filePath, file.content);
+      if (!fs.existsSync(filePath)) {
+        fs.writeFileSync(filePath, file.content);
+        console.log(`File ${file.name} created successfully!`);
+      } else {
+        console.log(`File ${file.name} already exists, skipping...`);
+      }
     });
 
-    console.log("Folder and files created successfully!");
+    console.log("\nFolder and files created successfully!\n");
   } catch (error) {
     console.error(`Something went wrong: ${error}`);
   }

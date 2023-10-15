@@ -1,6 +1,6 @@
 {
   "name": "rc-commands",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "CLI like angular ng for react",
   "main": "cli.js",
   "scripts": {
@@ -18,7 +18,8 @@
     "react",
     "commander",
     "fs",
-    "jest"
+    "jest",
+    "css"
   ],
   "author": "HenrikSantos",
   "license": "MIT",
