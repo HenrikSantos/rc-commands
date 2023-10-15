@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "node ./terminal/postinstall.js",
-    "postuninstall": "node ./terminal/postuninstall.js"
+    "postuninstall": "node ./terminal/postuninstall.js",
+    "eslint:fix": "eslint --fix ."
   },
   "bin": {
     "rc": "./cli.js"
@@ -29,5 +30,8 @@
     "commander": "^11.1.0",
     "fs": "^0.0.1-security",
     "kleur": "^4.1.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.51.0"
   }
 }
