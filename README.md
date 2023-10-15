@@ -67,18 +67,42 @@ This will create the following files:
     - Header.tsx
     - Header.spec.tsx
 
-# Help
+### Notes
+You can pass an optional path before the componentName, ex:
 
+```bash
+rc c ./src/components/header
+```
+
+If you opened the terminal in the views header folder and want to create another component in the components folder, you can do the following:
+
+```bash
+rc c ../footer
+```
+
+These commands will create the following files:
+   - src
+      - Header
+         - Header.css
+         - Header.tsx
+         - Header.spec.tsx
+      - Footer
+         - Footer.css
+         - Footer.tsx
+         - Footer.spec.tsx
+
+## Options
+--no-styles: If you dont't wanna create the css file you can use it:
+
+```bash
+rc c header --no-styles
+```
+
+# Help
 To get help on how to use `rc-commands`, you can execute:
 
 ```bash
 rc --help
-```
-
-or
-
-```bash
-rc c --help
 ```
 
 # Update
