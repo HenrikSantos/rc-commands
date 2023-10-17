@@ -5,6 +5,7 @@ module.exports = {
     node: true,
     commonjs: true,
     es2021: true,
+    jest: true,
   },
   extends: "eslint:recommended",
   overrides: [
@@ -46,7 +47,6 @@ module.exports = {
     "no-use-before-define": "error",
     "padding-line-between-statements": [
       "error",
-      { blankLine: "always", prev: ["const", "let"], next: "*" },
       { blankLine: "always", prev: "*", next: "function" },
       { blankLine: "always", prev: "*", next: "return" },
     ],
