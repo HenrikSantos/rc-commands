@@ -1,9 +1,9 @@
 "use strict";
 
-function tsTemplate(componentName) {
+function tsTemplate(componentName, styleType) {
   return {
     component: `import React from "react";
-import "./${ componentName }.css";
+import "./${ componentName }.${ styleType }";
 
 export default function ${ componentName }() {
   return (
@@ -18,8 +18,7 @@ test("checks if the div with text ${ componentName } is present", () => {
   const { getByText } = render(<${ componentName } />);
   const divElement = getByText(/${ componentName }/i);
   expect(divElement).toBeInTheDocument();
-});`,
-    css: "",
+});`
   };
 }
 

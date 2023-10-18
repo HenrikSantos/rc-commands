@@ -4,25 +4,12 @@
 
 ## Installation
 
-### Global Installation (preferred)
+| Option            | Command                                      |
+|-------------------|----------------------------------------------|
+| Global (preffer)  | `npm install -g rc-commands`                 |
+| Local             | `npm install rc-commands -D`                 |
 
-To use `rc-commands` globally, you need to install it globally. You can do this via npm:
-
-```bash
-npm install -g rc-commands
-```
-
-### Local Installation
-
-If you prefer to install `rc-commands` locally in your project, you can do so by running the following command in your project's root directory:
-
-```bash
-npm install rc-commands -D
-```
-
-This will add `rc-commands` as a dev dependency in your project's `package.json` file.
-
-Next, you will need to add the following command in your `package.json`:
+If installing locally, add the following to your `package.json`:
 
 ```json
 "scripts": {
@@ -30,32 +17,35 @@ Next, you will need to add the following command in your `package.json`:
 }
 ```
 
-To use `rc-commands` in this way, you will need to prefix all the commands with `npm run`.
+Use `npm run` before the command (e.g., `npm run rc`) when using locally.
 
-# How to use
+## How to use
 
-## Generate a TS Component
+### Generate a TS Component
 
-To generate a new component, use one of the following commands:
+| Option              | Command                                     |
+|---------------------|---------------------------------------------|
+| Short               | `rc c componentName`                        |
+| Medium              | `rc tsc componentName`                      |
+| Long                | `rc component componentName`                |
 
-```bash
-rc c componentName
-# or
-rc tsc componentName
-# or
-rc component componentName
-```
+### Generate a JS Component
 
-## Generate a JS Component
-For JavaScript components, you can use:
+| Option              | Command                                     |
+|---------------------|---------------------------------------------|
+| Short               | `rc jsc componentName`                      |
+| Long                | `rc js-component componentName`             |
 
-```bash
-rc jsc componentName
-# or
-rc js-component componentName
-```
+### Styles Options
 
-## Example:
+| Option           | Command                              |
+|------------------|--------------------------------------|
+| CSS (default)    | `rc c header`                        |
+| No Style         | `rc c header --no-styles`            |
+| LESS Styles      | `rc c header --less`                 |
+| SASS Styles      | `rc c header --sass`                 |
+
+## Examples:
 
 ```bash
 rc c header
@@ -67,7 +57,8 @@ This will create the following files:
     - Header.tsx
     - Header.spec.tsx
 
-### Notes
+### Paths
+
 You can pass an optional path before the componentName, ex:
 
 ```bash
@@ -93,33 +84,27 @@ These commands will create the following files:
          - Footer.tsx
          - Footer.spec.tsx
 
-## Options
---no-styles: If you dont't wanna create the css file you can use it:
+## Help
 
-```bash
-rc c header --no-styles
-```
-
-# Help
 To get help on how to use `rc-commands`, you can execute:
 
 ```bash
 rc --help
 ```
 
-# Update
+## Update
 
 To update `rc-commands` just open a terminal and enter the following command `npm update -g rc-commands`.
 
-# Uninstall
+## Uninstall
 
 To Uninstall `rc-commands` just open a terminal and enter the following command `npm uninstall -g rc-commands`.
 
-# Contribution
+## Contribution
 
 Feel free to contribute with improvements or bug fixes. Just follow the steps below:
 
-# How to Contribute
+### How to Contribute
 
 1. Find or Create an Issue
    - **Find Existing Issue:**
@@ -140,7 +125,7 @@ Feel free to contribute with improvements or bug fixes. Just follow the steps be
        - If you're making a quick fix or small enhancement, you can create a PR directly.
 
 3. Create a Branch
-   - Create a new branch in the format `feature/your-feature` or `bugfix/your-fix`.
+   - Create a new branch in the format `features/your-feature` or `bugfix/your-fix` or `tests/your-test`, you get it.
 
 4. Work on the Issue
    - Develop the solution for the issue in your branch.
@@ -160,8 +145,7 @@ Feel free to contribute with improvements or bug fixes. Just follow the steps be
 
 Thank you for contributing to the project! Together, we're making this project even better.
 
-
-# License
+## License
 
 This project is under the MIT license. See the [LICENSE](LICENSE) file for more details.
 
