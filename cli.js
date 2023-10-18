@@ -8,7 +8,7 @@ const { createComponent } = require("./createComponent");
 
 const program = new Command("rc-commands");
 
-program.version("0.0.3");
+program.version("0.0.4");
 
 /**
  *
