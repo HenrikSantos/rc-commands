@@ -28,10 +28,20 @@ function createComponentCommand(commandName, description, aliases, fileType) {
   command
     .description(description)
     .option("--no-styles", "Skip creation of style file (css)")
+    .option("--less","Choose less as style file")
+    .option("--sass", "Choose sass as style file")
     .action((componentPath, options) => {
       const createStyles = options.styles;
 
-      createComponent(componentPath, fileType, createStyles);
+      const styleTypeMap = {
+        less: "less",
+        sass: "sass",
+        default: "css"
+      };
+
+      const styleType = options.less ? "less" : options.sass ? "sass" : "default";
+      
+      createComponent(componentPath, fileType, createStyles, styleTypeMap[styleType]);
     });
 }
 

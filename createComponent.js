@@ -17,17 +17,18 @@ const { jsTemplate, tsTemplate } = require("./templates");
  * @param {string} componentPath
  * @param {"js" | "ts"} type
  * @param {boolean} createStyles
+ * @param {"css" | "sass" | "less"} styleType
  * @returns void
  */
-function createComponent(componentPath, type, createStyles) {
+function createComponent(componentPath, type, createStyles, styleType) {
   try {
     const folder = componentPath;
 
     const componentName = path.basename(componentPath).charAt(0).toUpperCase() + path.basename(componentPath).slice(1);
 
     const templates = {
-      ts: tsTemplate(componentName),
-      js: jsTemplate(componentName),
+      ts: tsTemplate(componentName, styleType),
+      js: jsTemplate(componentName, styleType),
     };
 
     const files = [
@@ -36,7 +37,7 @@ function createComponent(componentPath, type, createStyles) {
     ];
 
     if (createStyles) {
-      files.push({ name: `${ componentName }.css`, content: templates[type].css });
+      files.push({ name: `${ componentName }.${ styleType }`, content: "" });
     }
 
     fs.mkdirSync(folder, { recursive: true });
