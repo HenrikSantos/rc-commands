@@ -1,6 +1,6 @@
 {
   "name": "rc-commands",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "CLI like angular ng for react",
   "main": "cli.js",
   "scripts": {
