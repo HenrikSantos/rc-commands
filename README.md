@@ -45,7 +45,36 @@ Use `npm run` before the command (e.g., `npm run rc`) when using locally.
 | LESS Styles      | `rc c header --less`                 |
 | SASS Styles      | `rc c header --sass`                 |
 
-## Examples:
+### Pasing Props in TSX Components
+| Option           | Command                              |
+|------------------|--------------------------------------|
+| -p               | `rc c card -p ICard`                 |
+| -propName        | `rc c card -p ICard`                 |
+| -s               | `rc c card -s name lastName`         |
+| -strings         | `rc c card -s name lastName`         |
+| -b               | `rc c card -b valid`                 |
+| -booleans        | `rc c card -b valid`                 |
+| -n               | `rc c card -n number price`          |
+| -numbers         | `rc c card -n number price`          |
+
+## Example:
+```bash
+rc c card -p ICard -s name lastName -b valid -n size price
+```
+
+This will add the ICard interface into your component:
+
+```typescript
+export default interface ICard {
+  name: string,
+  lastName: string,
+  size: number,
+  price: number,
+  valid: boolean
+}
+``` 
+
+## Usage Example:
 
 ```bash
 rc c header

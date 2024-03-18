@@ -30,7 +30,17 @@ function createComponentCommand(commandName, description, aliases, fileType) {
     .option("--no-styles", "Skip creation of style file (css)")
     .option("--less","Choose less as style file")
     .option("--sass", "Choose sass as style file")
+    .option("-s, --strings <strings...>", "specify strings props")
+    .option("-n, --numbers <numbers...>", "specify numbers props")
+    .option("-b, --booleans <booleans...>", "specify booleans props")
+    .option("-p, --propName <propName>", "specify interface name")
     .action((componentPath, options) => {
+      const props = {};
+
+      if ("strings" in options) props.strings = options.strings; 
+      if ("numbers" in options) props.numbers = options.numbers; 
+      if ("booleans" in options) props.booleans = options.booleans;
+      if ("propName" in options)  props.propName = options.propName;
 
       let styleType = "css";
       
@@ -46,7 +56,7 @@ function createComponentCommand(commandName, description, aliases, fileType) {
         styleType = "sass";
       }
 
-      createComponent(componentPath, fileType, styleType);
+      createComponent(componentPath, fileType, styleType, props);
     });
 }
 

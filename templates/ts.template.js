@@ -1,11 +1,16 @@
 "use strict";
 
-function tsTemplate(componentName, styleType) {
+const generateInterface = require("../generateInterface");
+
+function tsTemplate(componentName, styleType, props) {
+  const generatedInterface = generateInterface(props);
+    
   return {
     component: `import React from "react";
 import "./${ componentName }.${ styleType }";
 
-export default function ${ componentName }() {
+${ Object.keys(props).length > 0 ? generatedInterface : "" }
+export default function ${ componentName }()${ props?.propName ? `: ${ props.propName }` : "" } {
   return (
     <div>${ componentName }</div>
   );
