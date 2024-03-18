@@ -17,10 +17,10 @@ const { jsTemplate, tsTemplate } = require("./templates");
  * @param {string} componentPath
  * @param {"js" | "ts"} type
  * @param {boolean} createStyles
- * @param {"css" | "sass" | "less"} styleType
+ * @param {"css" | "sass" | "less" | "no-styles"} styleType
  * @returns void
  */
-function createComponent(componentPath, type, createStyles, styleType) {
+function createComponent(componentPath, type, styleType) {
   try {
     const folder = componentPath;
 
@@ -36,7 +36,7 @@ function createComponent(componentPath, type, createStyles, styleType) {
       { name: `${ componentName }.spec.${ type === "ts" ? "tsx" : "jsx" }`, content: templates[type].spec },
     ];
 
-    if (createStyles) {
+    if (styleType !== "no-styles") {
       files.push({ name: `${ componentName }.${ styleType }`, content: "" });
     }
 
