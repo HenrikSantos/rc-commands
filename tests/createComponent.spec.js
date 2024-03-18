@@ -11,7 +11,7 @@ test("JS component creation with styles", async() => {
 
   const fileType = "js";
 
-  const createStyles = true;
+  const createStyles = "css";
 
   await createComponent(componentPath, fileType, createStyles);
 
@@ -32,7 +32,7 @@ test("JS component creation without styles", () => {
 
   const fileType = "js";
 
-  const createStyles = false;
+  const createStyles = "no-styles";
 
   createComponent(componentPath, fileType, createStyles);
 
@@ -48,12 +48,54 @@ test("JS component creation without styles", () => {
   expect(styleFileExists).toBeFalsy();
 });
 
+test("JS component creation with Sass styles", async() => {
+  const componentPath = `${ DEFAULT_PATH }/testComponent1`;
+    
+  const fileType = "js";
+    
+  const createStyles = "sass"; 
+  
+  await createComponent(componentPath, fileType, createStyles);
+    
+  expect(fs.existsSync(componentPath)).toBeTruthy();
+    
+  const jsxSpecFileExists = fs.existsSync(`${ componentPath }/TestComponent1.spec.jsx`);
+  expect(jsxSpecFileExists).toBeTruthy();
+  
+  const jsxFileExists = fs.existsSync(`${ componentPath }/TestComponent1.jsx`);
+  expect(jsxFileExists).toBeTruthy();
+  
+  const styleFileExists = fs.existsSync(`${ componentPath }/TestComponent1.sass`);
+  expect(styleFileExists).toBeTruthy();
+});
+
+test("JS component creation with Less styles", async() => {
+  const componentPath = `${ DEFAULT_PATH }/testComponent2`;
+  
+  const fileType = "js";
+    
+  const createStyles = "less"; 
+  
+  await createComponent(componentPath, fileType, createStyles);
+  
+  expect(fs.existsSync(componentPath)).toBeTruthy();
+  
+  const jsxSpecFileExists = fs.existsSync(`${ componentPath }/TestComponent2.spec.jsx`);
+  expect(jsxSpecFileExists).toBeTruthy();
+  
+  const jsxFileExists = fs.existsSync(`${ componentPath }/TestComponent2.jsx`);
+  expect(jsxFileExists).toBeTruthy();
+  
+  const styleFileExists = fs.existsSync(`${ componentPath }/TestComponent2.less`);
+  expect(styleFileExists).toBeTruthy();
+});
+
 test("TS component creation with styles", async() => {
   const componentPath = `${ DEFAULT_PATH }/testComponent3`;
 
   const fileType = "ts";
 
-  const createStyles = true;
+  const createStyles = "css";
 
   await createComponent(componentPath, fileType, createStyles);
 
@@ -75,7 +117,7 @@ test("TS component creation without styles", () => {
 
   const fileType = "ts";
 
-  const createStyles = false;
+  const createStyles = "no-styles";
 
   createComponent(componentPath, fileType, createStyles);
 
@@ -90,3 +132,46 @@ test("TS component creation without styles", () => {
   const styleFileExists = fs.existsSync(`${ componentPath }/TestComponent4.css`);
   expect(styleFileExists).toBeFalsy();
 });
+  
+test("TS component creation with Sass styles", async() => {
+  const componentPath = `${ DEFAULT_PATH }/testComponent3`;
+  
+  const fileType = "ts";
+  
+  const createStyles = "sass"; 
+  
+  await createComponent(componentPath, fileType, createStyles);
+  
+  expect(fs.existsSync(componentPath)).toBeTruthy();
+  
+  const tsxSpecFileExists = fs.existsSync(`${ componentPath }/TestComponent3.spec.tsx`);
+  expect(tsxSpecFileExists).toBeTruthy();
+  
+  const tsxFileExists = fs.existsSync(`${ componentPath }/TestComponent3.tsx`);
+  expect(tsxFileExists).toBeTruthy();
+  
+  const styleFileExists = fs.existsSync(`${ componentPath }/TestComponent3.sass`);
+  expect(styleFileExists).toBeTruthy();
+});
+
+test("TS component creation with Less styles", async() => {
+  const componentPath = `${ DEFAULT_PATH }/testComponent3`;
+    
+  const fileType = "ts";
+    
+  const createStyles = "less"; 
+    
+  await createComponent(componentPath, fileType, createStyles);
+    
+  expect(fs.existsSync(componentPath)).toBeTruthy();
+    
+  const tsxSpecFileExists = fs.existsSync(`${ componentPath }/TestComponent3.spec.tsx`);
+  expect(tsxSpecFileExists).toBeTruthy();
+    
+  const tsxFileExists = fs.existsSync(`${ componentPath }/TestComponent3.tsx`);
+  expect(tsxFileExists).toBeTruthy();
+    
+  const styleFileExists = fs.existsSync(`${ componentPath }/TestComponent3.less`);
+  expect(styleFileExists).toBeTruthy();
+});
+  
