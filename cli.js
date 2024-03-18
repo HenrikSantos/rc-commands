@@ -8,7 +8,7 @@ const { createComponent } = require("./createComponent");
 
 const program = new Command("rc-commands");
 
-program.version("0.0.4");
+program.version("0.0.5");
 
 /**
  *
@@ -20,9 +20,9 @@ program.version("0.0.4");
  */
 function createComponentCommand(commandName, description, aliases, fileType) {
   const command = program.command(commandName);
-  
-  if (aliases && aliases.length > 0) {
-    aliases.forEach((alias) => command.alias(alias));
+
+  for (let index = 0; index < aliases.length; index += 1) {
+    command.alias(aliases[index]);
   }
 
   command
@@ -31,21 +31,26 @@ function createComponentCommand(commandName, description, aliases, fileType) {
     .option("--less","Choose less as style file")
     .option("--sass", "Choose sass as style file")
     .action((componentPath, options) => {
-      const createStyles = options.styles;
 
-      const styleTypeMap = {
-        less: "less",
-        sass: "sass",
-        default: "css"
-      };
-
-      const styleType = options.less ? "less" : options.sass ? "sass" : "default";
+      let styleType = "css";
       
-      createComponent(componentPath, fileType, createStyles, styleTypeMap[styleType]);
+      if (options.noStyles) {
+        styleType = "no-styles";
+      } 
+      
+      if (options.less) {
+        styleType = "less";
+      } 
+      
+      if (options.sass) {
+        styleType = "sass";
+      }
+
+      createComponent(componentPath, fileType, styleType);
     });
 }
 
-createComponentCommand("component <[path/to/new/]ComponentName>", "create a component", ["c", "tsc"], "ts");
-createComponentCommand("js-component <[path/to/new/]ComponentName>", "create a js component", ["jsc"], "js");
+createComponentCommand("component <[path/to/new/]ComponentName>", "create a typescript component", ["c", "tsc"], "ts");
+createComponentCommand("js-component <[path/to/new/]ComponentName>", "create a javascript component", ["jsc"], "js");
 
 program.parse(process.argv);
