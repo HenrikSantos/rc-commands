@@ -51,7 +51,7 @@ test("JS component creation without styles", () => {
 });
 
 test("JS component creation with Sass styles", async() => {
-  const componentPath = `${ DEFAULT_PATH }/testComponent1`;
+  const componentPath = `${ DEFAULT_PATH }/testComponent3`;
     
   const fileType = "js";
     
@@ -62,18 +62,18 @@ test("JS component creation with Sass styles", async() => {
     
   expect(fs.existsSync(componentPath)).toBeTruthy();
     
-  const jsxSpecFileExists = fs.existsSync(`${ componentPath }/TestComponent1.spec.jsx`);
+  const jsxSpecFileExists = fs.existsSync(`${ componentPath }/TestComponent3.spec.jsx`);
   expect(jsxSpecFileExists).toBeTruthy();
   
-  const jsxFileExists = fs.existsSync(`${ componentPath }/TestComponent1.jsx`);
+  const jsxFileExists = fs.existsSync(`${ componentPath }/TestComponent3.jsx`);
   expect(jsxFileExists).toBeTruthy();
   
-  const styleFileExists = fs.existsSync(`${ componentPath }/TestComponent1.sass`);
+  const styleFileExists = fs.existsSync(`${ componentPath }/TestComponent3.sass`);
   expect(styleFileExists).toBeTruthy();
 });
 
 test("JS component creation with Less styles", async() => {
-  const componentPath = `${ DEFAULT_PATH }/testComponent2`;
+  const componentPath = `${ DEFAULT_PATH }/testComponent4`;
   
   const fileType = "js";
     
@@ -84,13 +84,13 @@ test("JS component creation with Less styles", async() => {
   
   expect(fs.existsSync(componentPath)).toBeTruthy();
   
-  const jsxSpecFileExists = fs.existsSync(`${ componentPath }/TestComponent2.spec.jsx`);
+  const jsxSpecFileExists = fs.existsSync(`${ componentPath }/TestComponent4.spec.jsx`);
   expect(jsxSpecFileExists).toBeTruthy();
   
-  const jsxFileExists = fs.existsSync(`${ componentPath }/TestComponent2.jsx`);
+  const jsxFileExists = fs.existsSync(`${ componentPath }/TestComponent4.jsx`);
   expect(jsxFileExists).toBeTruthy();
   
-  const styleFileExists = fs.existsSync(`${ componentPath }/TestComponent2.less`);
+  const styleFileExists = fs.existsSync(`${ componentPath }/TestComponent4.less`);
   expect(styleFileExists).toBeTruthy();
 });
 
