@@ -3,14 +3,13 @@
 const generateInterface = require("../generateInterface");
 
 function tsTemplate(componentName, styleType, props) {
-  const generatedInterface = generateInterface(props);
+  const generatedInterface = generateInterface(props, componentName);
     
   return {
     component: `import React from "react";
 import "./${ componentName }.${ styleType }";
-
-${ Object.keys(props).length > 0 ? generatedInterface : "" }
-export default function ${ componentName }()${ props?.propName ? `: ${ props.propName }` : "" } {
+${ Object.keys(props).length > 0 ? `\n${ generatedInterface }` : "" }
+export default function ${ componentName }(${ Object.keys(props).length > 0  ? `{}: I${ componentName }` : "" }) {
   return (
     <div>${ componentName }</div>
   );

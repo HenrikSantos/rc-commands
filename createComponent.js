@@ -15,7 +15,7 @@ const { jsTemplate, tsTemplate } = require("./templates");
  * @param {string} componentPath
  * @param {"js" | "ts"} type
  * @param {"css" | "sass" | "less" | "no-styles"} styleType
- * @param {"strings[]" | "numbers[]" | "booleans[]" | "propName" } props
+ * @param {"strings[]" | "numbers[]" | "booleans[]" } props
  * @returns void
  */
 function createComponent(componentPath, type, styleType, props) {
