@@ -168,8 +168,7 @@ test("TS component creation with Less styles", async() => {
     
   const createStyles = "less"; 
     
-  const props = { 
-    propName: "minhaInterface",
+  const props = {
     strings: ["name", "lastName"],
     numbers: ["id"],
     booleans: ["valido"], 

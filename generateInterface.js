@@ -1,6 +1,6 @@
 "use strict";
 
-function generateInterface(input) {
+function generateInterface(input, componentName) {
   
   const properties = [];
 
@@ -17,7 +17,7 @@ function generateInterface(input) {
     
   }
   
-  const interfaceDefinition = `export default interface ${ input?.propName ? input.propName : "yourInterface" } {
+  const interfaceDefinition = `interface I${ componentName } {
   ${ properties.join(",\n  ") }
 }` + "\n";
   
