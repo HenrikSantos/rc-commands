@@ -48,8 +48,6 @@ Use `npm run` before the command (e.g., `npm run rc`) when using locally.
 ### Pasing Props in TSX Components
 | Option           | Command                              |
 |------------------|--------------------------------------|
-| -p               | `rc c card -p ICard`                 |
-| -propName        | `rc c card -p ICard`                 |
 | -s               | `rc c card -s name lastName`         |
 | -strings         | `rc c card -s name lastName`         |
 | -b               | `rc c card -b valid`                 |
